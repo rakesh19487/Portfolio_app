@@ -1,5 +1,5 @@
 class PortfoliosController < ApplicationController
-    before_action :set_portfolio, only: [:show, :update, :edit, :destroy]
+    before_action :set_portfolio, only: [:show, :update, :edit, :destroy, :toggle_portfolio_status]
 
     def index
         @portfolios = Portfolio.all
@@ -23,19 +23,28 @@ class PortfoliosController < ApplicationController
     end
     
     def update
-        @portfolio = Portfolio.update(portfolio_params)
+        if @portfolio.update(portfolio_params)
+            redirect_to portfolios_path, notice: "Portfolio successfully updated"
+        else
+            render :edit, notice: "Something went wrong ..."
+        end        
+
+
     end   
     
     def destroy
         @portfolio.destroy
         redirect_to portfolios_path, notice: "Portfolio Successfully deleted"
     end 
-    
+
+    def missing
+
+    end    
     
     private
 
     def set_portfolio
-        @portfolio = Portfolio.friendly.find(params[:id])
+        @portfolio = Portfolio.find(params[:id])
     end   
     
     def portfolio_params
