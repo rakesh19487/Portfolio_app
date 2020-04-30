@@ -14,6 +14,15 @@
     <%= f.text_area :body %>
   </p>
 
-    <%= f.submit %>
+  <h5>Technologies</h5>
+  <%= f.fields_for :technologies do |t| %>
+    <p>
+      <%= t.label :name %>
+      <%= t.text_field :name %>
+    </p>
+  <% end%>
+
+
+  <%= f.submit %>
 
 <% end %>

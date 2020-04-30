@@ -6,15 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-3.times do |t|
+4.times do |t|
     Topic.create!(name: "Topic #{t}")
 end    
 
 10.times do |b|
     Blog.create!(
-        title: "This is title for blog#{b}",
+        title: "This is title for blog #{b}",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        topic_id: Topic.last.id
+        topic_id: rand(1..4)
     )
 end    
 
@@ -28,6 +28,12 @@ end
     )
 end    
 
+4.times do |t|
+    Technology.create!(
+        name: "Tech #{t}",
+        portfolio_id: rand(1..9)
+    )
+end    
 
 5.times do |s|
     Skill.create!(

@@ -1,4 +1,8 @@
 class Portfolio < ApplicationRecord
+
+    has_many :technologies
+    accepts_nested_attributes_for :technologies, reject_if: lambda { |attr| attr[:name].blank?   }
+
     validates_presence_of :title, :body, :subtitle, :thumb_image, :main_image
 
     include ImagePlaceholder

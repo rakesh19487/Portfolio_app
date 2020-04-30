@@ -4,3 +4,11 @@
 <h4><%= @portfolio.subtitle %></h4>
 <p><%= @portfolio.body %></p>
 <%= image_tag (@portfolio.main_image) if @portfolio.main_image %>
+
+
+<hr>
+<h3>Technologies</h3>
+
+<% @portfolio.technologies.each do |technology| %>
+    <p><%= technology.name %></p>
+<% end %>
