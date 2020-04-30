@@ -7,4 +7,6 @@ class Blog < ApplicationRecord
     friendly_id :title, use: :slugged
 
     validates_presence_of :title, :body
+
+    scope :order_by_created_at, -> { order( created_at: :desc ) }
 end

@@ -2,11 +2,12 @@ class PortfoliosController < ApplicationController
     before_action :set_portfolio, only: [:show, :update, :edit, :destroy, :toggle_portfolio_status]
 
     def index
-        @portfolios = Portfolio.all
+        @portfolios = Portfolio.order_by_created_at
     end    
 
     def new
         @portfolio = Portfolio.new
+        3.times { @portfolio.technologies.build }
     end    
 
     def create
@@ -48,6 +49,6 @@ class PortfoliosController < ApplicationController
     end   
     
     def portfolio_params
-        params.require(:portfolio).permit(:title, :subtitle, :body, :thumb_image, :main_image)
+        params.require(:portfolio).permit(:title, :subtitle, :body, :thumb_image, :main_image, technologies_attributes: [:name])
     end   
 end
