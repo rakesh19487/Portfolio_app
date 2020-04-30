@@ -2,7 +2,7 @@ class PortfoliosController < ApplicationController
     before_action :set_portfolio, only: [:show, :update, :edit, :destroy, :toggle_portfolio_status]
 
     def index
-        @portfolios = Portfolio.all
+        @portfolios = Portfolio.order_by_created_at
     end    
 
     def new
