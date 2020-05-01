@@ -3,6 +3,6 @@
   <p><%= blog.body %></p>
   <p><%= link_to blog.status.capitalize, toggle_blog_status_blog_path(blog) %></p>
   <p><%= link_to 'Show', blog %></p>
-  <%= link_to 'Edit', edit_blog_path(blog) %>
-  <%= link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Edit', edit_blog_path(blog) if logged_in?(:site_admin) %>
+  <%= link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin)%>
 </div>
