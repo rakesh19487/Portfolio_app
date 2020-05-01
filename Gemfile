@@ -61,3 +61,7 @@ gem 'friendly_id', '~> 5.2.4' # Note: You MUST use 5.0.0 or greater for Rails 4.
 gem 'devise'
 
 gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+gem 'rails-ujs', '~> 0.1.0'
+
+gem 'petergate', '~> 2.0', '>= 2.0.1'
