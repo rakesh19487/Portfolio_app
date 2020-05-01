@@ -1,8 +1,10 @@
 class PortfoliosController < ApplicationController
     before_action :set_portfolio, only: [:show, :update, :edit, :destroy, :toggle_portfolio_status]
+    layout "portfolios"
 
     def index
-        @portfolios = Portfolio.order_by_created_at
+        @portfolio_items = Portfolio.order_by_created_at
+        @page_title = "Portfolios"
     end    
 
     def new
