@@ -1,6 +1,3 @@
-<h2>Blogs</h2>
-<p id="notice"><%= notice %></p>
-<%= link_to 'Create new Blog', new_blog_path if logged_in?(:site_admin) %>
-<div>
-  <%= render partial: "blog", collection: @blogs , spacer_template: 'shared/spacer'%>
+<div class="col-md-8 blog-main">
+    <%= render partial: "blog", collection: @blogs , spacer_template: 'shared/spacer'%>
 </div>
