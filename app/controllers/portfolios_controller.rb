@@ -1,12 +1,19 @@
 class PortfoliosController < ApplicationController
     before_action :set_portfolio, only: [:show, :update, :edit, :destroy, :toggle_portfolio_status]
     layout "portfolios"
-    access all: [:show, :index], user: {except: [:new, :edit, :create, :update, :destroy]}, site_admin: :all
+    access all: [:show, :index], user: {except: [:new, :edit, :create, :update, :destroy, :sort, :toggle_portfolio_status]}, site_admin: :all
 
 
     def index
-        @portfolio_items = Portfolio.order_by_created_at
+        @portfolio_items = Portfolio.by_position
         @page_title = "Portfolios"
+    end    
+
+    def sort
+        params[:order].each do |key,value|
+            Portfolio.find(value[:id]).update(position: value[:position])
+        end
+        render body: nil
     end    
 
     def new
@@ -53,6 +60,6 @@ class PortfoliosController < ApplicationController
     end   
     
     def portfolio_params
-        params.require(:portfolio).permit(:title, :subtitle, :body, :thumb_image, :main_image, technologies_attributes: [:name])
+        params.require(:portfolio).permit(:title, :subtitle, :body, :thumb_image, :main_image, :position, technologies_attributes: [:name])
     end   
 end

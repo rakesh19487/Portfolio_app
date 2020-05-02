@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><%= @page_title %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,20 +11,13 @@
   </head>
   <body>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    
-    <p><%= "Hi, " + current_user.first_name  %></p>
-
-
-    <%= render 'shared/nav', {layout: "Portfolios"}%>
-
-    <br>
-    <%= check_login_nav %> 
-    
-    <%= yield %>
-
-    <%= session_source %>    
+    <%= render 'shared/portfolios/portfolio_nav' %>
+    <main role="main">
+      <%= render 'shared/portfolios/portfolio_masthead' %>
+      <%= yield %>
+      <%= render 'shared/portfolios/portfolio_footer' %>
+      <%= session_source %>    
+    </main>
   
   </body>
 </html>

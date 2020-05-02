@@ -1,28 +1,22 @@
-
 <%= form_with(model: @portfolio, local: true) do |f| %>
-  <p>
+  <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title %>
-  </p>
-    <p>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
     <%= f.label :subtitle %>
-    <%= f.text_field :subtitle %>
-  </p>
-
-  <p>
+    <%= f.text_field :subtitle, class: "form-control" %>
+  </div>
+  <div class="form-group">
     <%= f.label :body %>
-    <%= f.text_area :body %>
-  </p>
-
-  <h5>Technologies</h5>
+    <%= f.text_area :body, class: "form-control", rows: 15 %>
+  </div>
+  <h4>Technologies Used</h4>
   <%= f.fields_for :technologies do |t| %>
-    <p>
+    <div class="form-group">
       <%= t.label :name %>
-      <%= t.text_field :name %>
-    </p>
+      <%= t.text_field :name, class: "form-control" %>
+    </div>
   <% end%>
-
-
-  <%= f.submit %>
-
+  <%= f.submit "Update", class: "btn btn-primary"  %>
 <% end %>

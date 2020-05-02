@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     end  
   end  
 
-  resources :portfolios
+  resources :portfolios do 
+    put :sort, on: :collection
+  end  
   
 
   root "pages#home"

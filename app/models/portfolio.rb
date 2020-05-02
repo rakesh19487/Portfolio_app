@@ -13,6 +13,7 @@ class Portfolio < ApplicationRecord
         order(created_at: :desc)
     end    
 
+    scope :by_position, -> { order('position ASC').all }
 
     def set_image
         self.thumb_image ||= ImagePlaceholder.image_generator(300, 300)
