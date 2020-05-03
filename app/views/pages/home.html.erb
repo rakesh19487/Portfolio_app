@@ -1,2 +1,5 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1 class="cover-heading">Welcome to Portfolio app, </h1>
+<p class="lead"><%= current_user.first_name  %></p>
+<p class="lead">
+  <%= link_to 'About', about_path, class: "btn btn-lg btn-secondary" %>   
+</p>
