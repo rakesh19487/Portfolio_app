@@ -48,3 +48,13 @@
     margin: 0 auto;
 }
 //   Custom Scss
+
+.portfolio-nav a{
+  color:grey !important;
+  font-weight: bold;
+}
+
+.portfolio-nav a:hover, .portfolio-nav .active{
+  color:white !important
+}
+

@@ -141,4 +141,15 @@
   }
 
 
-  
+  .blog-nav a:hover, .blog-nav .active{
+    color: #9e3943 !important;
+    font-weight: bold;
+
+  }
+
+  .blog-nav a {
+    color: #6c757d !important;
+    padding: 0.5rem !important;
+    font-weight: bold;
+    font-size: 1rem !important;
+  }
