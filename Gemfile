@@ -70,3 +70,7 @@ gem "font-awesome-rails"
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 
 gem 'kaminari'
+
+gem 'carrierwave', '~> 2.0'
+gem 'cloudinary'
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.5'
