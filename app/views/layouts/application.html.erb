@@ -12,10 +12,9 @@
   <body class="text-center">
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
       <%= render 'shared/main_application/main_nav' %>
+      <%= alerts %>
       <main role="main" class="inner cover">
-
         <%= video_tag "HardDrivePhotojpeg.mp4",id: "bkg-img", autoplay: true, loop: true, muted: true, poster: "home_bg.png"%>
-
         <%= yield %>
       </main>
       <%= render 'shared/main_application/main_footer' %>

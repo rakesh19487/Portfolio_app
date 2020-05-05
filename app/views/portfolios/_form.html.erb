@@ -1,32 +1,39 @@
 <%= form_with(model: @portfolio, local: true) do |f| %>
+  <% if @portfolio.errors.any? %>
+    <% @portfolio.errors.full_messages.each do |message| %>
+      <%= alert_generator message %>
+    <% end %>
+  <% end %>
   <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control" %>
+    <%= f.text_field :title, class: "form-control", placeholder: "Title" %>
   </div>
   <div class="form-group">
-    <%= f.label :subtitle %>
-    <%= f.text_field :subtitle, class: "form-control" %>
+    <%= f.text_field :subtitle, class: "form-control", placeholder: "Subtitle" %>
   </div>
   <div class="form-group">
-    <%= f.label :body %>
-    <%= f.text_area :body, class: "form-control", rows: 15 %>
+    <%= f.text_area :body, class: "form-control", rows: 15, placeholder: "Content" %>
   </div>
   <div class="form-group">
-    <label class="btn btn-primary">
-      <%= f.file_field :thumb_image , class: "portfolio-file-field"%> Upload thumb image
-    </label>
-  </div>
-  <div class="form-group">
-    <label class="btn btn-primary">
-      <%= f.file_field :main_image, class: "portfolio-file-field" %> Upload main image
-    </label>
+    <div class="row">
+      <div class="col-6">
+        <label class="btn btn-primary">
+          <%= f.file_field :thumb_image , class: "portfolio-file-field"%> Upload thumb image 
+        </label>
+      </div>
+      <div class="col-6">
+        <label class="btn btn-primary">
+          <%= f.file_field :main_image, class: "portfolio-file-field" %> Upload main image
+        </label>
+      </div>
+    </div>
   </div>
   <h4>Technologies Used</h4>
-  <%= f.fields_for :technologies do |t| %>
-    <div class="form-group">
-      <%= t.label :name %>
-      <%= t.text_field :name, class: "form-control" %>
-    </div>
-  <% end%>
-  <%= f.submit "Update", class: "btn btn-primary"  %>
+  <div class="form-group">
+    <%= f.fields_for :technologies do |tech| %>
+      <%= render "technology_fields", f: tech %>
+    <% end%>
+    <br>
+    <%= link_to_add_association 'Add', f, :technologies, class: "btn btn-sm btn-primary" %>
+  </div>
+  <%= f.submit "Submit", class: "btn btn-primary"  %>
 <% end %>
