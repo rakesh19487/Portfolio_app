@@ -29,6 +29,7 @@ module PortfolioApp
     # the framework and any gems in your application.
 
     # Don't generate system test files.
+    config.eager_load_paths << "#{Rails.root}/lib"
     config.generators.system_tests = nil
     config.generators do |g|
       g.stylesheets false

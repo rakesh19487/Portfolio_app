@@ -36,6 +36,10 @@ module ApplicationHelper
          {
             nav_name: 'Portfolios',
             path: portfolios_path
+         },
+         {
+            nav_name: 'Technews',
+            path: technews_path
          }
       ]
     end  
@@ -50,11 +54,14 @@ module ApplicationHelper
       end
       active_class
     end  
+    
 
     def set_nav_links(tag_attr, tag_style)
       navs = ""
       nav_links.each do |nav|
           navs <<  "<#{tag_attr}>"+'<a class='+ "'" +"#{tag_style} #{set_active_class(nav[:path])}"+ "' href=#{nav[:path]}>#{nav[:nav_name]}</a>" + "</#{tag_attr}>" 
+         #  nav_links << "<#{tag_type}><a href='#{item[:url]}' class='#{style} #{active? item[:url]}'>#{item[:title]}</a></#{tag_type}>"
+
       end   
       navs.html_safe
     end  

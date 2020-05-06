@@ -47,7 +47,7 @@ body {
 }
 
 .cover-container {
-  max-width: 42em;
+  max-width: 65em;
 }
 
 
@@ -141,4 +141,14 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+
+.technews{
+  padding: 20px;
+  color:black;
+}
+
+.technews a {
+  color: blue;
 }
