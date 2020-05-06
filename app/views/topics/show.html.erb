@@ -1,7 +1,11 @@
 <div class="col-md-8 blog-main">
   <h2><%= @topic.name%></h2>
   <hr>
+  <% if @blogs.size > 0 %>
   <%= paginate @blogs %>
   <%= render partial: "blogs/blog", collection: @blogs , spacer_template: 'shared/spacer'%>
   <%= paginate @blogs %>
+  <% else %>
+    No blogs are published under this <%= @topic.name %> topic
+  <% end %>
 </div>

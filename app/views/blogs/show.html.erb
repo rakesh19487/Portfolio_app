@@ -1,16 +1,35 @@
 <div class="col-md-8 blog-main">
-  <p>
-    <strong>Title:</strong>
-    <%= @blog.title %>
-  </p>
-  <p>
-    <strong>Topic:</strong>
-    <%= link_to @blog.topic.name, topic_path(@blog.topic.id) %>
-  </p>
-  <p>
-    <strong>Body:</strong>
-    <%= @blog.body %>
-  </p>
-  <%= link_to 'Edit  |', edit_blog_path(@blog) if logged_in?(:site_admin) %>
-  <%= link_to 'Back', blogs_path %>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h3><%= @blog.title %></h3>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item ml-3">
+              <%= link_to "Home", root_path %>
+            </li>
+            <li class="breadcrumb-item">
+              <%= link_to @blog.topic.name, topic_path(@blog.topic.id) %>
+            </li>
+            <li class="breadcrumb-item">
+              <%= @blog.title %>
+            </li>
+            <% if logged_in?(:site_admin) %>
+              <li class="ml-auto">
+                <%= link_to edit_blog_path(@blog) do %>
+                  <i class="fa fa-pencil"></i>&nbsp;&nbsp;
+                <% end %>
+                <%= link_to blog_path(@blog), method: :delete, data: {confirm: "Are you sure ?"} do  %>
+                  <i class="fa fa-trash"></i>
+                <% end %>
+              </li>
+            <% end %>
+          </ol>
+        </nav>
+      </nav>
+      <p><%= @blog.body %></p>
+      <hr>
+    </div>
+  </div>
+</div>
 </div>
