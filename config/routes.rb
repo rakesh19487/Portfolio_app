@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  
+  resources :topics, only: [:show, :index]
   devise_for :users, path: "", path_names: {sign_up: "register", sign_in: "login", sign_out: "logout"}
   get 'about', :to => "pages#about" 
   get 'contact', :to => "pages#contact"

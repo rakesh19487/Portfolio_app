@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_blog_status]
+  before_action :side_bar_topics, only: [:show, :index, :edit, :new, :update, :create]
   layout "blogs"
   access all: [:show, :index], user: {except: [:new, :edit, :create, :update, :destroy]}, site_admin: :all
 
@@ -39,10 +40,8 @@ class BlogsController < ApplicationController
     respond_to do |format|
       if @blog.save
         format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
-        format.json { render :show, status: :created, location: @blog }
       else
-        format.html { render :new }
-        format.json { render json: @blog.errors, status: :unprocessable_entity }
+        format.html { render :new, notice:  @blog.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -53,10 +52,8 @@ class BlogsController < ApplicationController
     respond_to do |format|
       if @blog.update(blog_params)
         format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
-        format.json { render :show, status: :ok, location: @blog }
       else
         format.html { render :edit }
-        format.json { render json: @blog.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -89,6 +86,10 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:title, :body)
+      params.require(:blog).permit(:title, :body, :topic_id)
     end
+
+    def side_bar_topics
+      @side_bar_topics = Topic.with_blogs
+    end  
 end

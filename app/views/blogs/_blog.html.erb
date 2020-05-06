@@ -1,5 +1,5 @@
 <div class="blog-post">
-  <h2 class="blog-post-title"><%= link_to blog.title, blog_path(blog) %></h2>
+  <h5 class="blog-post-title"><%= link_to blog.title, blog_path(blog) %></h5>
   <p class="blog-post-meta"><%= time_ago_in_words(blog.created_at) %> ago</p>
   <p><%= blog.body %></p>
   <%= link_to "#{blog.status.capitalize} /", toggle_blog_status_blog_path(blog) if logged_in?(:site_admin)  %> 

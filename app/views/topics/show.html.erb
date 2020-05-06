@@ -1,0 +1,7 @@
+<div class="col-md-8 blog-main">
+  <h2><%= @topic.name%></h2>
+  <hr>
+  <%= paginate @blogs %>
+  <%= render partial: "blogs/blog", collection: @blogs , spacer_template: 'shared/spacer'%>
+  <%= paginate @blogs %>
+</div>

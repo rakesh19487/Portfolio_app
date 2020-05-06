@@ -4,6 +4,10 @@
     <%= @blog.title %>
   </p>
   <p>
+    <strong>Topic:</strong>
+    <%= link_to @blog.topic.name, topic_path(@blog.topic.id) %>
+  </p>
+  <p>
     <strong>Body:</strong>
     <%= @blog.body %>
   </p>
