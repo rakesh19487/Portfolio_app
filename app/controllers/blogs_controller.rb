@@ -6,13 +6,20 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.order_by_created_at.page(params[:page]).per(5)
+    if logged_in?(:site_admin)
+      @blogs = Blog.order_by_created_at.page(params[:page]).per(5)
+    else  
+      @blogs = Blog.order_by_created_at.show_only_publshed_blog.page(params[:page]).per(5)
+    end  
     @page_title = "Blogs"
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    if !logged_in?(:site_admin) and @blog.draft?
+      redirect_to blogs_path, notice: "You are not authorized to view this"
+    end  
   end
 
   # GET /blogs/new
