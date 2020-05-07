@@ -36,5 +36,7 @@ module PortfolioApp
       g.javascripts false
       g.template_engine :erb
     end  
+
+    config.secret_key_base = ENV["SECRET_KEY_BASE"]
   end
 end
