@@ -1,5 +1,10 @@
 <h1 class="cover-heading">Welcome to Portfolio app, </h1>
-<p class="lead"><%= "Hi ," + current_user.first_name  %></p>
-<p class="lead">
-  <%= link_to 'About', about_path, class: "btn btn-lg btn-secondary" %>   
-</p>
+<div class="row">
+  <div class="col-6">
+    <h2><%= "Hi ," + current_user.first_name  %></h2>
+    <p>I am a web developer with about 8 years of professional experience in various web based technologies like Ruby on Rails, javascript, jquery, html, css etc . I have a graduation degree from University of Mumbai I am dedicated,hard working and inquisitive professional and strive for perfection and excellence in my work</p>
+  </div>
+  <div class="col-6">
+    <%= link_to 'About me', about_path, class: "btn btn-lg btn-secondary" %>
+  </div>
+</div>
