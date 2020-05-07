@@ -1,5 +1,72 @@
-<h1 class="cover-heading">About me</h1>
-<p class="lead"> 
-I am a web developer with about 8 years of professional experience in various web based technologies like Ruby on Rails, javascript, jquery, html, css etc . I have a graduation degree from University of Mumbai I am dedicated,hard working and inquisitive professional and strive for perfection and excellence in my work.
-</p>
-
+<div class="accordion card_cont" id="accordionExample">
+  <div class="card">
+    <div class="card-header alert alert-info" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-info btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Work Experience
+        </button>
+      </h2>
+    </div>
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body card_form alert alert-info">
+        <h4>Senior Developer</h4>
+        <p>2012-2019</p>
+        <h6>QuoDeck Technologies</h6>
+        <p>
+          QuoDeck is a Mumbai based startup and I was amongst first set employees of the organisation.We are into serious games and simulations and cater corporates to fulfil their learning requirements with the help of Gamification. We are a product company as well as a services company to cater external clients for custom requirements. I am a senior developer and I work individually as well as in a team of about 6 to 7 people. My responsibilities involves designing ,architecting, interacting with clients(Project Management) and execution of custom solutions for our clients. On the product side, I have architected and designed the product and I am also responsible for global deployment of the product. One of the key role is to implement efficiently and train people in the new technologies introduced by the organisation make sure the team is as efficient as possible in execution.
+        </p>
+        <h4>FM NNOC Engineer</h4>
+        <p>2010-2012</p>
+        <h6>ADDECO PVT LTD</h6>
+        <p>
+          Worked for Alcatel-Lucent, a French global telecommunications equipment company, headquartered in Boulogne-Billancourt, France.In this job, my role was more in the support and maintenance team as a fresher. My key responsibilities included monitoring and maintenance of BTS and BSC and raising alarms.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header alert alert-info" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-info btn-block collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Education
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        <h5>BE (Electronics and Telecommunication)</h5>
+        <p> Mumbai University:- 2005 - 2009</p>
+        <h5>Higher Secondary Certificate</h5>
+        <p>Maharashtra State Board:- 2004 - 2005</p>
+        <h5>Secondary School Certificate</h5>
+        <p>Maharashtra State Board:- 2002 - 2003</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header alert alert-info" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-info btn-block collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Skill
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        <% @skills.each do |skill| %>
+          <div class="row">
+            <div class="col-md-3 col-xs-12">
+              <%= skill.title %>
+            </div>
+            <div class="col-md-9 col-xs-12">
+              <div class="progress mb-3">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="<%= skill.percentage %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= skill.percentage %>%">
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

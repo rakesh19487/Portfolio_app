@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+User.create!(:email => "user.example@gmail.com", :password => "password", :password_confirmation => "password", :name => "userexample", :roles => "user")
+
+
 4.times do |t|
     Topic.create!(name: "Topic #{t}")
 end    
@@ -23,8 +27,6 @@ end
         title: "This is title for portfolio #{p}",
         subtitle: "This is subtitle for portfolio #{p}",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        # thumb_image: "https://via.placeholder.com/300",
-        # main_image: "https://via.placeholder.com/640x400"
     )
 end    
 
@@ -35,9 +37,9 @@ end
     )
 end    
 
-5.times do |s|
-    Skill.create!(
-        title: "Rails-#{s}",
-        percentage: 75
-    )
-end    
+Skill.create!(title: "Ruby on rails",percentage: 75)
+Skill.create!(title: "React",percentage: 40)
+Skill.create!(title: "Javascript",percentage: 60)
+Skill.create!(title: "Jquery",percentage: 65)
+Skill.create!(title: "Html",percentage: 70)
+Skill.create!(title: "Css",percentage: 68)
