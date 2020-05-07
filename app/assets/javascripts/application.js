@@ -20,5 +20,7 @@
 //= require html5sortable
 //= require cocoon
 //= require gritter
+//= require lib/typed
+//= require lib/typed-implementation
 //= require turbolinks
 //= require_tree .

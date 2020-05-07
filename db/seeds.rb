@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create!(:email => "user.example@gmail.com", :password => "password", :password_confirmation => "password", :name => "userexample", :roles => "user")
+User.create!(:email => "user.example@gmail.com", :password => "password", :password_confirmation => "password", :username => "userexample", :roles => "user")
 
 
 4.times do |t|
@@ -37,9 +37,9 @@ end
     )
 end    
 
-Skill.create!(title: "Ruby on rails",percentage: 75)
-Skill.create!(title: "React",percentage: 40)
-Skill.create!(title: "Javascript",percentage: 60)
-Skill.create!(title: "Jquery",percentage: 65)
-Skill.create!(title: "Html",percentage: 70)
-Skill.create!(title: "Css",percentage: 68)
+5.times do |s|
+    Skill.create!(
+        title: "Rails-#{s}",
+        percentage: 75
+    )
+end    
