@@ -2,7 +2,5 @@
   <h5 class="blog-post-title"><%= link_to blog.title, blog_path(blog) %></h5>
   <p class="blog-post-meta"><%= time_ago_in_words(blog.created_at) %> ago</p>
   <p><%= blog.body %></p>
-  <%= link_to "#{blog.status.capitalize} /", toggle_blog_status_blog_path(blog) if logged_in?(:site_admin)  %> 
-  <%= link_to 'Edit /', edit_blog_path(blog) if logged_in?(:site_admin)  %> 
-  <%= link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin)%>
+  <%= render :partial => "blog_admin_access", locals: {blog: blog, status: true} %>
 </div>

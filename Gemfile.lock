@@ -308,7 +308,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails (~> 2.7, >= 2.7.5)
-  font-awesome-rails
+  font-awesome-rails (~> 4.7, >= 4.7.0.5)
   friendly_id (~> 5.2.4)
   gritter (~> 1.2)
   jbuilder (~> 2.5)

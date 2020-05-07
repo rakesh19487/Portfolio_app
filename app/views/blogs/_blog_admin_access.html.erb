@@ -1,0 +1,5 @@
+ <% if logged_in?(:site_admin) %>
+  <%= link_to fa_icon("file"), toggle_blog_status_blog_path(blog), class: "font-icon #{blog_status_color(blog)}" if status %> 
+  <%= link_to fa_icon("pencil-square-o"), edit_blog_path(blog), class: "font-icon"  %> 
+  <%= link_to fa_icon("trash"), blog, method: :delete, data: { confirm: 'Are you sure?' } , class: "font-icon"%>
+<% end %>

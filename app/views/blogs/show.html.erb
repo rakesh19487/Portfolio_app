@@ -14,16 +14,9 @@
             <li class="breadcrumb-item">
               <%= @blog.title %>
             </li>
-            <% if logged_in?(:site_admin) %>
-              <li class="ml-auto">
-                <%= link_to edit_blog_path(@blog) do %>
-                  <i class="fa fa-pencil"></i>&nbsp;&nbsp;
-                <% end %>
-                <%= link_to blog_path(@blog), method: :delete, data: {confirm: "Are you sure ?"} do  %>
-                  <i class="fa fa-trash"></i>
-                <% end %>
-              </li>
-            <% end %>
+            <li class="ml-auto">
+              <%= render :partial => "blog_admin_access", locals: {blog: @blog, status: false } %>
+            </li>
           </ol>
         </nav>
       </nav>

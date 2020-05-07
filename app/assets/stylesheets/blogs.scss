@@ -154,3 +154,12 @@
     font-weight: bold;
     font-size: 1rem !important;
   }
+
+  .font-icon i { 
+    font-size: 1.1rem;
+    margin-left: 5px;
+  }
+
+  .font-icon-publish, .font-icon-publish:hover{
+    color: green
+  }

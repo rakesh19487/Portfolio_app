@@ -74,7 +74,7 @@ class BlogsController < ApplicationController
     elsif @blog.draft?
         @blog.published!
     end        
-    redirect_to blogs_path, notice: "Changed #{@blog.title} status to #{@blog.status}"
+    redirect_to blogs_path, notice: "Changed status to #{@blog.status}"
   end    
 
 
