@@ -3,6 +3,6 @@ class Topic < ApplicationRecord
 
     has_many :blogs
 
-    scope :with_blogs, -> { includes(:blogs).where.not(blogs: {id: nil}) }
+    scope :with_blogs, -> { includes(:blogs).where.not(blogs: {id: nil}).where(blogs: {status: "published"} ) }
 
 end

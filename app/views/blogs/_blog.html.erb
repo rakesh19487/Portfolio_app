@@ -2,5 +2,5 @@
   <h5 class="blog-post-title"><%= link_to blog.title, blog_path(blog) %></h5>
   <p class="blog-post-meta"><%= time_ago_in_words(blog.created_at) %> ago</p>
   <p><%= blog.body %></p>
-  <%= render :partial => "blog_admin_access", locals: {blog: blog, status: true} %>
+  <%= render :partial => "blogs/blog_admin_access", locals: {blog: blog, status: true} %>
 </div>
